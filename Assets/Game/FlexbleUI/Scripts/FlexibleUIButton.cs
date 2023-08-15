@@ -19,6 +19,7 @@ public class FlexibleUIButton : BaseClass
         
         button.transition = Selectable.Transition.SpriteSwap;
         button.targetGraphic = image;
+
         image.sprite = skinData.sprite;
         image.color = skinData.generalColor;
 
