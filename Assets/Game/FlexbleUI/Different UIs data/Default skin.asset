@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Default skin
   m_EditorClassIdentifier: 
   generalColor: {r: 1, g: 1, b: 1, a: 1}
-  sprite: {fileID: 21300000, guid: f4f7c8bd20b00af4892d04c4bcfa52f8, type: 3}
+  sprite: {fileID: 21300000, guid: 5016d6f22359696438a0d54178534ae4, type: 3}
   buttonSpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f4f7c8bd20b00af4892d04c4bcfa52f8, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: d930abb59e3785b418af600e73ad25a3, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: f4f7c8bd20b00af4892d04c4bcfa52f8, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 5016d6f22359696438a0d54178534ae4, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 5016d6f22359696438a0d54178534ae4, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 5016d6f22359696438a0d54178534ae4, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 5016d6f22359696438a0d54178534ae4, type: 3}
