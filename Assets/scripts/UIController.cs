@@ -12,8 +12,6 @@ public class UIController : MonoBehaviour
     private VisualElement Button_ClosePopUp;
     private VisualElement Button_OpenShop;
     private VisualElement Container2;
-    private List<VisualElement> ButtonS_AddToCart = new List<VisualElement>();
-
 
     void Start()
     {
@@ -26,16 +24,11 @@ public class UIController : MonoBehaviour
         Button_ClosePopUp = root.Q("Button_ClosePopUp");
         Button_OpenShop = root.Query("Button_OpenShop").First();
         Container2 = root.Q("Container2");
-        ButtonS_AddToCart = root.Query("Button_OpenShop").ToList();
 
         Button_OpenPopUp.RegisterCallback<ClickEvent>(OnOpenPopUpButtonClicked);
         Button_ClosePopUp.RegisterCallback<ClickEvent>(OnClosePopUpButtonClicked);
         Button_OpenShop.RegisterCallback<ClickEvent>(OnOpenShopButtonClicked);
 
-        foreach (VisualElement button in ButtonS_AddToCart)
-        {
-            button.RegisterCallback<ClickEvent>(OnAddToCartClicked);
-        }
     }  
 
     private void OnOpenPopUpButtonClicked(ClickEvent ev)
@@ -55,9 +48,5 @@ public class UIController : MonoBehaviour
     {
         Container1.style.display = DisplayStyle.None;
         Container2.style.display = DisplayStyle.Flex;
-    }
-    private void OnAddToCartClicked(ClickEvent ev)
-    {
-
     }
 }
