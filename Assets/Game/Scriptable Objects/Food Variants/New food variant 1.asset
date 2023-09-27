@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e10259e4bd80241a75fd8cf19213f8, type: 3}
+  m_Name: New food variant 1
+  m_EditorClassIdentifier: 
+  foodID: 3999993
+  foodName: fryes
+  foodImage: {fileID: 21300000, guid: 931ed2b1ca8cd0d4d846e3fc10ad1a79, type: 3}
+  price: 4
+  descriptionText: Lalalalalalalalall ojasoajsoaj
+  specialTypeSprite: {fileID: 21300000, guid: 5e90de1d9a5f57f40bc1bc36cc86964e, type: 3}
