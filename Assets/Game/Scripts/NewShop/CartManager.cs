@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class CartManager : MonoBehaviour
+public class CartManager 
 {
-<<<<<<< Updated upstream
-    
-=======
     private List<FoodVariant> itemsInCart = new List<FoodVariant>();
     public void AddToCart(FoodVariant item)
     {
@@ -18,11 +16,10 @@ public class CartManager : MonoBehaviour
     }
     public void InstanciateAllItemsInCart(List<CartItem> cartItems)
     {
-        //List<FoodVariant> cleanItemsInCart = itemsInCart.GroupBy(n => );
+        List<FoodVariant> cleanItemsInCart = itemsInCart.GroupBy(n => );
         foreach (CartItem cartItem in cartItems)
         {
-            
+            ca
         }
     }
->>>>>>> Stashed changes
 }
