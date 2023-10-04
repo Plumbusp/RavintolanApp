@@ -1,21 +1,26 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class ItemsHandler : MonoBehaviour
+public class GoodsManager 
 {
-    [SerializeField] private List<FoodVariant> foodVariants = new List<FoodVariant>();
-    [SerializeField] private List<GameObject> foodBlocksList = new List<GameObject>();
-    private Queue<GameObject> foodBlocks = new Queue<GameObject>();
-    private void Awake()
+    List<FoodVariant> foodVariants;
+    List<GameObject> foodBlocksList;
+    Queue<GameObject> foodBlocks = new Queue<GameObject>();
+    public GoodsManager(List<FoodVariant> foodVariants, List<GameObject> foodBlocksList)
     {
-        foreach(var block in foodBlocksList)
+        this.foodVariants = new List<FoodVariant>(foodVariants);
+        this.foodBlocksList = new List<GameObject>(foodBlocksList);
+    }
+    public void CreateAllGoods()
+    {
+        foreach (var block in foodBlocksList)
         {
             foodBlocks.Enqueue(block);
         }
-        foreach(FoodVariant variant in foodVariants)
+        foreach (FoodVariant variant in foodVariants)
         {
-            if(foodBlocks.Count > 0)
+            if (foodBlocks.Count > 0)
             {
                 foodBlocks.Dequeue().TryGetComponent<FoodBlock>(out FoodBlock foodBlock);
                 if (foodBlock != null)
@@ -23,7 +28,7 @@ public class ItemsHandler : MonoBehaviour
                     foodBlock.foodID = variant.foodID;
                     foodBlock.SetItemName(variant.foodName);
                     foodBlock.SetItemImage(variant.foodImage);
-                    foodBlock.SetItemPrice(variant.price); 
+                    foodBlock.SetItemPrice(variant.price);
                     foodBlock.SetItemDescriptionText(variant.descriptionText);
                     foodBlock.SetItemSpecialType(variant.specialTypeSprite);
                 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 [System.Serializable]
-public class Item: MonoBehaviour, IItem
+public class Item: MonoBehaviour
 {
     public delegate void AddingItem(int id);
     public static event AddingItem OnItemAdded;
