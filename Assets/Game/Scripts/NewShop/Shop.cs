@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static FoodBlock;
+using static Item;
 
 public class Shop : MonoBehaviour
 {
     [SerializeField] private Button openShop;
-    [SerializeField] private List<FoodVariant> foodVariants = new List<FoodVariant>();
-    [SerializeField] private List<GameObject> foodBlocksList = new List<GameObject>();
+    [SerializeField] private List<ItemVariant> foodVariants = new List<ItemVariant>();
+    [SerializeField] private List<GameObject> foodBlocks = new List<GameObject>();
     [SerializeField] private List<GameObject> cartBlocks = new List<GameObject>();
-    GoodsManager goodsManager;
+
     CartManager cartManager;
     private void Awake()
     {
-        goodsManager = new GoodsManager(foodVariants, foodBlocksList);
-        goodsManager.CreateAllGoods();
-        cartManager = new CartManager();
+        cartManager = new CartManager(foodVariants, foodBlocks, foodBlocks);
         openShop.onClick.AddListener(() => cartManager.InstanciateAllItemsInCart());
         Item.OnItemAdded += HandleItemAdd;
     }
@@ -27,7 +25,7 @@ public class Shop : MonoBehaviour
 
     private void HandleItemAdd(int id)
     {
-        foreach (FoodVariant variant in foodVariants)
+        foreach (ItemVariant variant in foodVariants)
         {
             if(variant.foodID == id)
             {

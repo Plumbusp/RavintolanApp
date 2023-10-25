@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemsHandler : MonoBehaviour
 {
-    [SerializeField] private List<FoodVariant> foodVariants = new List<FoodVariant>();
+    [SerializeField] private List<ItemVariant> foodVariants = new List<ItemVariant>();
     [SerializeField] private List<GameObject> foodBlocksList = new List<GameObject>();
     private Queue<GameObject> foodBlocks = new Queue<GameObject>();
     private void Awake()
@@ -13,14 +13,14 @@ public class ItemsHandler : MonoBehaviour
         {
             foodBlocks.Enqueue(block);
         }
-        foreach(FoodVariant variant in foodVariants)
+        foreach(ItemVariant variant in foodVariants)
         {
             if(foodBlocks.Count > 0)
             {
-                foodBlocks.Dequeue().TryGetComponent<FoodBlock>(out FoodBlock foodBlock);
+                foodBlocks.Dequeue().TryGetComponent<Item>(out Item foodBlock);
                 if (foodBlock != null)
                 {
-                    foodBlock.foodID = variant.foodID;
+                    foodBlock.id = variant.foodID;
                     foodBlock.SetItemName(variant.foodName);
                     foodBlock.SetItemImage(variant.foodImage);
                     foodBlock.SetItemPrice(variant.price); 

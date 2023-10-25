@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CartBlockMono : MonoBehaviour
+public class CartItem : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] private string itemName;
