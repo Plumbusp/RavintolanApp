@@ -10,6 +10,8 @@ public class Item: MonoBehaviour
 {
     public delegate void AddingItem(int id);
     public static event AddingItem OnItemAdded;
+    public delegate void RemovingItem(int id);
+    public static event RemovingItem OnItemRemoved;
     public int id;
     public bool added;
     public string itemName;
@@ -19,9 +21,11 @@ public class Item: MonoBehaviour
     public Sprite picture;
     private Image image;
     private Button buttonAdd;
+    private Button buttonDelete;
     private void Awake()
     {
         image.sprite = picture;
         buttonAdd.clicked += () => OnItemAdded.Invoke(id);
+        buttonDelete.clicked += () => OnItemRemoved.Invoke(id);
     }
 }

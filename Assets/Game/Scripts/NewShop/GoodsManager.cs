@@ -5,24 +5,24 @@ using UnityEngine.UIElements;
 public class GoodsManager 
 {
     List<FoodVariant> foodVariants;
-    List<GameObject> foodBlocksList;
-    Queue<GameObject> foodBlocks = new Queue<GameObject>();
+    List<GameObject> foodBlocks;
+    Queue<GameObject> foodBlocksQueue = new Queue<GameObject>();
     public GoodsManager(List<FoodVariant> foodVariants, List<GameObject> foodBlocksList)
     {
         this.foodVariants = new List<FoodVariant>(foodVariants);
-        this.foodBlocksList = new List<GameObject>(foodBlocksList);
+        this.foodBlocks = new List<GameObject>(foodBlocksList);
     }
     public void CreateAllGoods()
     {
-        foreach (var block in foodBlocksList)
+        foreach (var block in foodBlocks)
         {
-            foodBlocks.Enqueue(block);
+            foodBlocksQueue.Enqueue(block);
         }
         foreach (FoodVariant variant in foodVariants)
         {
-            if (foodBlocks.Count > 0)
+            if (foodBlocksQueue.Count > 0)
             {
-                foodBlocks.Dequeue().TryGetComponent<FoodBlock>(out FoodBlock foodBlock);
+                foodBlocksQueue.Dequeue().TryGetComponent<FoodBlock>(out FoodBlock foodBlock);
                 if (foodBlock != null)
                 {
                     foodBlock.foodID = variant.foodID;

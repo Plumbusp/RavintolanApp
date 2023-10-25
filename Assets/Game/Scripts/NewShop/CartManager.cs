@@ -7,6 +7,14 @@ using UnityEngine;
 public class CartManager 
 {
     private List<FoodVariant> itemsInCart = new List<FoodVariant>();
+    List<GameObject> cartBlocks;
+    private Queue<GameObject> cartBlocksQueue;
+
+    public CartManager(List<GameObject> cartBlocks)
+    {
+        this.cartBlocks = cartBlocks;
+    }
+
     public void AddToCart(FoodVariant item)   //  add item to cart
     {
         itemsInCart.Add(item);
@@ -15,32 +23,47 @@ public class CartManager
     {
         itemsInCart.Remove(item);            // remove item from cart
     }
-    public List<CartBlockAbstract> InstanciateAllItemsInCart()   // method that returns list of ready-to-use cart blocks 
+    public void InstanciateAllItemsInCart()   // method that returns list of ready-to-use cart blocks 
     {
-        List<CartBlockAbstract> cartBlocks = new List<CartBlockAbstract>();
-
-        var cleanItemsInCart = itemsInCart.GroupBy(x => x.foodID).ToList();  // Grouping choosed items in our cart, to search for dublicates
-        foreach(List<FoodVariant> cleanItem in cleanItemsInCart)
+        foreach(var cartBlock in cartBlocks)
         {
-            if (cleanItem.Count() > 1)
+            cartBlocksQueue.Enqueue(cartBlock);
+        }
+
+        List<CartBlockAbstract> abstractItemsInCart = new List<CartBlockAbstract>();
+        var groupedItems = itemsInCart.GroupBy(x => x.foodID).ToList();  // Grouping choosed items in our cart, to search for dublicates
+        foreach(List<FoodVariant> groupedItem in groupedItems)
+        {
+            if (groupedItem.Count() > 1)
             {   
                 int amount = 0;
-                foreach (FoodVariant item in cleanItem)
+                foreach (FoodVariant item in groupedItem)
                 {
                     amount++;
-                    cleanItem.Remove(item);
+                    groupedItem.Remove(item);
                 }
-                cartBlocks.Add(new CartBlockAbstract(cleanItem[0].foodImage, cleanItem[0].foodName, amount));
+                abstractItemsInCart.Add(new CartBlockAbstract(groupedItem[0].foodImage, groupedItem[0].foodName, amount));
             }
-            else if(cleanItem.Count() == 1)
+            else if(groupedItem.Count() == 1)
             {
-                foreach (FoodVariant item in cleanItem)
+                foreach (FoodVariant item in groupedItem)
                 {
-                    cartBlocks.Add(new CartBlockAbstract(cleanItem[0].foodImage, cleanItem[0].foodName, 1));
+                    abstractItemsInCart.Add(new CartBlockAbstract(groupedItem[0].foodImage, groupedItem[0].foodName, 1));
                 }
             }
         }
-        return cartBlocks;
+        foreach(var item in abstractItemsInCart)
+        {
+            if (cartBlocksQueue.Count > 0)
+            {
+                if (cartBlocksQueue.Dequeue().TryGetComponent<CartBlockMono>(out CartBlockMono cartMonobeh))
+                {
+                    cartMonobeh.SetImage(item.image);
+                    cartMonobeh.SetName(item.foodName);
+                    cartMonobeh.SetAmount(item.count);
+                }
+            }
+        }
     }
 
     public class CartBlockAbstract
