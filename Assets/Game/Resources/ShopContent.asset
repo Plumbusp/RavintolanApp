@@ -13,12 +13,8 @@ MonoBehaviour:
   m_Name: ShopContent
   m_EditorClassIdentifier: 
   _dessertItems:
-  - {fileID: 11400000, guid: ee1bc7575374c044a97fd4d5ad1a7f46, type: 2}
-  - {fileID: 11400000, guid: 618358ec22504284da20f04bdf21f079, type: 2}
   - {fileID: 11400000, guid: 9f6681b581170e04aa88230c62e91a17, type: 2}
   - {fileID: 11400000, guid: 4b762f8f8b674704184b61f6f784c9dd, type: 2}
   _appetizerItems:
-  - {fileID: 11400000, guid: 5be36d6cac2ddf24ba68d56833ef9da2, type: 2}
-  - {fileID: 11400000, guid: 315fa41058f7896489089216c1435576, type: 2}
-  - {fileID: 11400000, guid: 42825c096a09aad418e9cb5d5e893f9d, type: 2}
   - {fileID: 11400000, guid: d88022aab1d1bd745abcd7883913d81e, type: 2}
+  - {fileID: 11400000, guid: 42825c096a09aad418e9cb5d5e893f9d, type: 2}

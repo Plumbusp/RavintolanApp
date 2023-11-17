@@ -13,13 +13,18 @@ public class ShopContent : ScriptableObject
     public IEnumerable <AppetizerItem> AppetizerItems => _appetizerItems;
     private void OnValidate()
     {
-        var dessertItemsDublicates = _dessertItems.GroupBy(item => item.DessertType).Where(dublicates => dublicates.Count() > 1);
-        if(dessertItemsDublicates.Count()> 0)
-            throw new InvalidOperationException(nameof(_dessertItems));
-
-        var appetizersItemsDublicates = _appetizerItems.GroupBy(item => item.AppetizerType).Where(dublicates => dublicates.Count() > 1);
-        if (appetizersItemsDublicates.Count() > 0)
-            throw new InvalidOperationException(nameof(_appetizerItems));
+        if (_dessertItems.Count() >0)
+        {
+            var dessertItemsDublicates = _dessertItems.GroupBy(item => item.DessertType).Where(array => array.Count() > 1);
+            if (dessertItemsDublicates.Count() > 0)
+                throw new InvalidOperationException(nameof(_dessertItems));
+        }
+        if (_appetizerItems.Count() > 0)
+        {
+            var appetizersItemsDublicates = _appetizerItems.GroupBy(item => item.AppetizerType).Where(array => array.Count() > 1);
+            if (appetizersItemsDublicates.Count() > 0)
+                throw new InvalidOperationException(nameof(_appetizerItems));
+        }
     }
 
 }
