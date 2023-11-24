@@ -7,15 +7,15 @@ public class ShopPanel : MonoBehaviour
 {
     [SerializeField] private ShopItemViewFactory _shopItemViewFactory;
     [SerializeField] private Transform _parentTransform;
-    private List<ShopItemView> shopItemViews = new List<ShopItemView>();
+    private List<ShopItemView> shopItems = new List<ShopItemView>();
     public void Show(IEnumerable<ShopItem> items)
     {
         Clear();
         foreach(ShopItem item in items)
         {
             ShopItemView spawnedItem = _shopItemViewFactory.Get(item, _parentTransform);
-            spawnedItem.AddToCartClick += OnAddToCartClick;
-            shopItemViews.Add(spawnedItem);
+            spawnedItem.CartClick += OnAddToCartClick;
+            shopItems.Add(spawnedItem);
         }
     }
 
@@ -26,11 +26,12 @@ public class ShopPanel : MonoBehaviour
 
     private void Clear()
     {
-        foreach(ShopItemView itemView in shopItemViews)
+        foreach(ShopItemView item in shopItems)
         {
-            itemView.AddToCartClick -= OnAddToCartClick;
-            Destroy(itemView.gameObject);
+            item.CartClick -= OnAddToCartClick;
+            Destroy(item.gameObject);
         }
+        shopItems.Clear();
         // Clear all previous data 
     }
 }

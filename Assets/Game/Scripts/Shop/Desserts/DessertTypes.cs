@@ -4,9 +4,9 @@ using UnityEngine;
 
 public enum DessertTypes 
 {
-   Peach_Pie,
-   Lemon_Cake,
+   PeachPie,
+   LemonCake,
    Cheesecake,
-   Ice_Cream,
-   Strawberry_Ice_Cream
+   IceCream,
+   StrawberryIceCream
 }

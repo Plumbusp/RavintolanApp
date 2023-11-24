@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static Item;
 
-public class Shop : MonoBehaviour
+public class oldShop : MonoBehaviour
 {
     [SerializeField] private Button openShop;
     [SerializeField] private List<ItemVariant> foodVariants = new List<ItemVariant>();

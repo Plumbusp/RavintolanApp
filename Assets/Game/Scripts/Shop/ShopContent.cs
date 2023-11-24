@@ -9,22 +9,22 @@ public class ShopContent : ScriptableObject
 {
     [SerializeField] private List<DessertItem> _dessertItems;
     [SerializeField] private List<AppetizerItem> _appetizerItems;
-    public IEnumerable <DessertItem> DessertItems => _dessertItems;
-    public IEnumerable <AppetizerItem> AppetizerItems => _appetizerItems;
+
+    public IEnumerable<DessertItem>  DessertItems => _dessertItems;
+    public IEnumerable<AppetizerItem> AppetizerItems => _appetizerItems;
     private void OnValidate()
     {
-        if (_dessertItems.Count() >0)
+        var dessertItemsDublicates = _dessertItems.GroupBy(item => item.DessertType)
+            .Where(array => array.Count() > 1);
+        if (dessertItemsDublicates?.Count() > 0)
         {
-            var dessertItemsDublicates = _dessertItems.GroupBy(item => item.DessertType).Where(array => array.Count() > 1);
-            if (dessertItemsDublicates.Count() > 0)
-                throw new InvalidOperationException(nameof(_dessertItems));
+            throw new InvalidOperationException(nameof(dessertItemsDublicates));
         }
-        if (_appetizerItems.Count() > 0)
+        var appetizerItemsDublicate = _appetizerItems.GroupBy(item => item.AppetizerType)
+        .Where(array => array.Count() > 1);
+        if (appetizerItemsDublicate?.Count() > 0)
         {
-            var appetizersItemsDublicates = _appetizerItems.GroupBy(item => item.AppetizerType).Where(array => array.Count() > 1);
-            if (appetizersItemsDublicates.Count() > 0)
-                throw new InvalidOperationException(nameof(_appetizerItems));
+            throw new InvalidOperationException(nameof(appetizerItemsDublicate));
         }
     }
-
 }

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f3ee731a7bd4f48ad8354766d01f1c, type: 3}
   m_Name: Mashrooms
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 0}
+  <Image>k__BackingField: {fileID: 21300000, guid: faf317c3783503648a68422672f8c0a6, type: 3}
   <Price>k__BackingField: 3
+  <Title>k__BackingField: Mashrooms
   <AppetizerType>k__BackingField: 1

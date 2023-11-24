@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ShopItemViewFactory", menuName = "Shop")]
+[CreateAssetMenu(fileName = "new ShopItemViewFactory", menuName = "Shop/ShopItemViewFactory")]
 public class ShopItemViewFactory : ScriptableObject
 {
     [SerializeField] private ShopItemView _dishItemPrefab;

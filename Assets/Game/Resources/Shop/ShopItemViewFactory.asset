@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1f3ee731a7bd4f48ad8354766d01f1c, type: 3}
-  m_Name: Lumpia
+  m_Script: {fileID: 11500000, guid: 625bb2b85d7a8e34e88f27edbf4c8f9d, type: 3}
+  m_Name: ShopItemViewFactory
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 0}
-  <Price>k__BackingField: 9
-  <AppetizerType>k__BackingField: 0
+  _dishItemPrefab: {fileID: 5223562454793302378, guid: fd6814c368ae5004ea3c6a282634639e, type: 3}
