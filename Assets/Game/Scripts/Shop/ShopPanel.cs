@@ -8,6 +8,7 @@ public class ShopPanel : MonoBehaviour
     [SerializeField] private ShopItemViewFactory _shopItemViewFactory;
     [SerializeField] private Transform _parentTransform;
     private List<ShopItemView> shopItems = new List<ShopItemView>();
+    private List<ShopItem> chosenItems = new List<ShopItem>();
     public void Show(IEnumerable<ShopItem> items)
     {
         Clear();

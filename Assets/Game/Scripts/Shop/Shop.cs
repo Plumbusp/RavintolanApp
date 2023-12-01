@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : MonoBehaviour
 {
@@ -19,6 +20,13 @@ public class Shop : MonoBehaviour
         _desserts.Click += OnDessertsClick;
         _mainDish.Click += OnMainDishClick;
         _drinks.Click += OnDrinksClick;
+    }
+    private void OnDisable()
+    {
+        _appetizers.Click -= OnAppetizersClick;
+        _desserts.Click -= OnDessertsClick;
+        _mainDish.Click -= OnMainDishClick;
+        _drinks.Click -= OnDrinksClick;
     }
     public void OnAppetizersClick()
     {
