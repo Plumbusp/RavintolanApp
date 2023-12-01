@@ -7,11 +7,15 @@ using UnityEngine;
 [CreateAssetMenu (fileName = "ShopContent" , menuName = "Shop/Shop Content(Container)")]
 public class ShopContent : ScriptableObject
 {
-    [SerializeField] private List<DessertItem> _dessertItems;
     [SerializeField] private List<AppetizerItem> _appetizerItems;
+    [SerializeField] private List<MainDishItem> _mainDishItems;
+    [SerializeField] private List<DessertItem> _dessertItems;
+    [SerializeField] private List<DrinkItem> _drinkItem;
 
     public IEnumerable<DessertItem>  DessertItems => _dessertItems;
     public IEnumerable<AppetizerItem> AppetizerItems => _appetizerItems;
+    public IEnumerable<MainDishItem> MainDishItems => _mainDishItems;
+    public IEnumerable<DrinkItem> DrinkItems => _drinkItem;
     private void OnValidate()
     {
         var dessertItemsDublicates = _dessertItems.GroupBy(item => item.DessertType)

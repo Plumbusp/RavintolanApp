@@ -30,11 +30,11 @@ public class Shop : MonoBehaviour
     }
     public void OnMainDishClick()
     {
-        throw new NotImplementedException(nameof(_mainDish));
+        panel.Show(content.MainDishItems);
     }
     public void OnDrinksClick()
     {
-        throw new NotImplementedException(nameof(_drinks));
+        panel.Show(content.DrinkItems);
     }
 
 }
