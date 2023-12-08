@@ -8,7 +8,6 @@ public class ShopPanel : MonoBehaviour
     [SerializeField] private ShopItemViewFactory _shopItemViewFactory;
     [SerializeField] private Transform _parentTransform;
     private List<ShopItemView> shopItems = new List<ShopItemView>();
-    private List<ShopItem> chosenItems = new List<ShopItem>();
     public void Show(IEnumerable<ShopItem> items)
     {
         Clear();
@@ -22,7 +21,7 @@ public class ShopPanel : MonoBehaviour
 
     private void OnAddToCartClick(ShopItem item)
     {
-        Debug.Log(item.Price);
+        PersistentData.OrderDataObject.AddItem(item);
     }
 
     private void Clear()

@@ -9,6 +9,7 @@ public class CartButton : MonoBehaviour
     private Button _button;
     private void OnEnable()
     {
+        _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClick);
     }
     private void OnDisable()

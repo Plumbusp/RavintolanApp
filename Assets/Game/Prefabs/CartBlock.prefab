@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 178376983228931000}
   _title: {fileID: 6871491542497204273}
-  _price: {fileID: 2266773832793789381}
+  _priceView: {fileID: 2266773832793789381}
   _specialSign: {fileID: 1006955450103755685}
 --- !u!1 &7895594459687145274
 GameObject:
