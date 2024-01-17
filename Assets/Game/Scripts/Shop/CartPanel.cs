@@ -10,8 +10,15 @@ public class CartPanel : MonoBehaviour
     [SerializeField] private Transform _parentTransform;
     private List<CartItemView> _cartItems = new List<CartItemView>();
     private CartTypeSorter _cartSorter = new CartTypeSorter();
+
+    public void Initialize()
+    {
+
+    }
     public void Show(IEnumerable<ShopItem> items)
     {
+        if (items == null)
+            return;
         var sortedItems = _cartSorter.SortItems(items);
         foreach (var item in sortedItems)
         {
@@ -29,10 +36,10 @@ public class CartPanel : MonoBehaviour
     }
     private class CartTypeSorter   // PAY ATTENTION TO AMOUNT OF THE ITEM TYPE currently 4  // SORT ITEMS BY TYPE
     {
-        private List<ShopItem> mainDishItems;   //4   each type has its of list
-        private List<ShopItem> appetizerItems;
-        private List<ShopItem> dessertItems;
-        private List<ShopItem> drinkItems;
+        private List<ShopItem> mainDishItems = new List<ShopItem>();   //4   each type has its of list
+        private List<ShopItem> appetizerItems = new List<ShopItem>();
+        private List<ShopItem> dessertItems = new List<ShopItem>();
+        private List<ShopItem> drinkItems = new List<ShopItem>();
         public IEnumerable<ShopItem> SortItems(IEnumerable<ShopItem> items)  // method called to sort items by type. It returnes sorted IEnumaerable.
         {
             if (items == null)
@@ -44,10 +51,15 @@ public class CartPanel : MonoBehaviour
                 Visit(item);
             }
             List<ShopItem> sortedItems = new List<ShopItem>();
-            sortedItems.AddRange(mainDishItems);    //4   making one common list
-            sortedItems.AddRange(appetizerItems);
-            sortedItems.AddRange(dessertItems);
-            sortedItems.AddRange(drinkItems);
+            //4   making one common list
+            if(mainDishItems.Count > 0)
+                sortedItems.AddRange(mainDishItems);
+            if(appetizerItems.Count > 0)  
+                sortedItems.AddRange(appetizerItems);
+            if(dessertItems.Count > 0)    
+                sortedItems.AddRange(dessertItems);
+            if(drinkItems.Count > 0)
+                sortedItems.AddRange(drinkItems);
             return sortedItems;
         }
         private void Visit(ShopItem item) => Visit((dynamic)item);   // partly using visitor pattern  
@@ -57,17 +69,17 @@ public class CartPanel : MonoBehaviour
         }
         private void Visit(MainDishItem item)
         {
-            appetizerItems.Add(item);
+            mainDishItems.Add(item);
         }
 
         private void Visit(DessertItem item)
         {
-            appetizerItems.Add(item);
+            dessertItems.Add(item);
         }
 
         private void Visit(DrinkItem item)
         {
-            appetizerItems.Add(item);
+            drinkItems.Add(item);
         }
     }
 }

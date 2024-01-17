@@ -13,13 +13,14 @@ public class CartItemView : MonoBehaviour
     [SerializeField] private TMP_Text _priceView;
     [SerializeField] private Image _specialSign;
     private int _amount;
+    private int _price;
     public ShopItem Item { get; private set; }
     public int Amount => _amount;
     public int Price
     {
         get
         {
-            return Price;
+            return _price;
         }
         set
         {
@@ -27,14 +28,16 @@ public class CartItemView : MonoBehaviour
             {
                 throw new ArgumentOutOfRangeException(nameof(value));
             }
-            Price += value;
+            _price += value;
         }
     }
     public void Initialize(ShopItem item)
     {
         this.Item = item;
         _image.sprite = item.Image;
+        _specialSign.sprite = item.SpecialSign;
         _title.text = item.Title;
         Price = item.Price;
+        _priceView.text = _price.ToString();
     }
 }

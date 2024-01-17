@@ -9,4 +9,5 @@ public class ShopItem : ScriptableObject
     [field: SerializeField, Range(0,100)] public int Price { get; private set; }
     [field: SerializeField] public string Title { get; private set; }
     [field: SerializeField] public string Description { get; private set; }
+    [field: SerializeField] public Sprite SpecialSign { get; private set; }
 }

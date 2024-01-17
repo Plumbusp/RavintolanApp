@@ -9,13 +9,14 @@ using TMPro;
 [RequireComponent(typeof(Image))]
 public class ShopItemView : MonoBehaviour
 {
-    public event Action<ShopItem> CartClick;
+    public event Action<ShopItem> OnAddToCartClick;
     [Header("Buttons")]
-    [SerializeField] private Button _cartButton;
+    [SerializeField] private Button _addToCartButton;
     [SerializeField] private Button _descriptionButton;
     [Header("Images ect.")]
     [SerializeField] private Image _backgroundImage;
     [SerializeField] private Image _foodImage;
+    [SerializeField] private Image _imageForSpecialSign;
     [SerializeField] private GameObject _descriptionPanel;
     [SerializeField] private Color _standartBackground;
     [SerializeField] private Color _highlightedBackground;
@@ -30,11 +31,12 @@ public class ShopItemView : MonoBehaviour
     {
          Item = item;
 
-        _cartButton.onClick.AddListener(() => CartClick?.Invoke(Item));
+        _addToCartButton.onClick.AddListener(() => OnAddToCartClick?.Invoke(Item));
         _descriptionButton.onClick.AddListener(ShowDescription);
 
         _foodImage.sprite = item.Image;
         _title.text = item.Title;
+        _imageForSpecialSign.sprite = item.SpecialSign;
         _descriptionText.text = item.Description;
         _backgroundImage.color = _standartBackground;
         _priceView.Show(Price);  //we are showing price by default 

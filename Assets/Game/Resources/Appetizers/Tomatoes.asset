@@ -15,4 +15,6 @@ MonoBehaviour:
   <Image>k__BackingField: {fileID: 21300000, guid: 293dd5c3c18641a49a0e32095defa292, type: 3}
   <Price>k__BackingField: 6
   <Title>k__BackingField: Tomatoes
+  <Description>k__BackingField: 
+  <SpecialSign>k__BackingField: {fileID: 21300000, guid: 3cc767b5ac54d6e43815aa8342ebf307, type: 3}
   <AppetizerType>k__BackingField: 2

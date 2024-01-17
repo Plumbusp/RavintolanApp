@@ -7,28 +7,36 @@ public class ShopPanel : MonoBehaviour
 {
     [SerializeField] private ShopItemViewFactory _shopItemViewFactory;
     [SerializeField] private Transform _parentTransform;
+
+    private PersistantData _persistantData;
     private List<ShopItemView> shopItems = new List<ShopItemView>();
+
+    public void Initialize(PersistantData persistantData)
+    {
+        _persistantData = persistantData;
+    }
+
     public void Show(IEnumerable<ShopItem> items)
     {
         Clear();
         foreach(ShopItem item in items)
         {
             ShopItemView spawnedItem = _shopItemViewFactory.Get(item, _parentTransform);
-            spawnedItem.CartClick += OnAddToCartClick;
+            spawnedItem.OnAddToCartClick += OnAddToCartClick;
             shopItems.Add(spawnedItem);
         }
     }
 
     private void OnAddToCartClick(ShopItem item)
     {
-        PersistentData.OrderDataObject.AddItem(item);
+        _persistantData.OrderDataObject.AddItem(item);
     }
 
     private void Clear()
     {
         foreach(ShopItemView item in shopItems)
         {
-            item.CartClick -= OnAddToCartClick;
+            item.OnAddToCartClick -= OnAddToCartClick;
             Destroy(item.gameObject);
         }
         shopItems.Clear();

@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 176d06258eb971648a7494ffa6729521, type: 3}
-  m_Name: IceCream
+  m_Name: Strawberry_IceCream
   m_EditorClassIdentifier: 
   <Image>k__BackingField: {fileID: 21300000, guid: 6ffad94b3366ecc4cb7ea9547014dff5, type: 3}
-  <Price>k__BackingField: 71
-  <Title>k__BackingField: Ice cream
-  <DessertType>k__BackingField: 3
+  <Price>k__BackingField: 30
+  <Title>k__BackingField: Strawberry ice cream
+  <Description>k__BackingField: fhjkfhjkfhjk
+  <SpecialSign>k__BackingField: {fileID: 21300000, guid: 732c697a802de274e9e45e0ba7407656, type: 3}
+  <DessertType>k__BackingField: 4

@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 176d06258eb971648a7494ffa6729521, type: 3}
-  m_Name: lemonCake
+  m_Name: Cheesecake
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 21300000, guid: faf317c3783503648a68422672f8c0a6, type: 3}
+  <Image>k__BackingField: {fileID: 21300000, guid: c76f8b3660bc073458ff43a9bdb7ee3c, type: 3}
   <Price>k__BackingField: 33
-  <Title>k__BackingField: Lemon cake
-  <DessertType>k__BackingField: 1
+  <Title>k__BackingField: Cheesecake
+  <Description>k__BackingField: fgasdgfasgasrg
+  <SpecialSign>k__BackingField: {fileID: 21300000, guid: eba4ccfe53daaf547aa3be123ddbc586, type: 3}
+  <DessertType>k__BackingField: 2

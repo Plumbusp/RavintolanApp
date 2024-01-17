@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2143354194556288719}
   - component: {fileID: 2958055348033010552}
   m_Layer: 5
-  m_Name: Special Type Panel
+  m_Name: Special Type Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,10 +580,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c324b1d9bd3a254e9e27c40153bf160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cartButton: {fileID: 5875618068279081309}
+  _addToCartButton: {fileID: 5875618068279081309}
   _descriptionButton: {fileID: 5000271722705944058}
   _backgroundImage: {fileID: 7751683539726751324}
   _foodImage: {fileID: 6611354434072555915}
+  _imageForSpecialSign: {fileID: 2958055348033010552}
   _descriptionPanel: {fileID: 8386545959043917762}
   _standartBackground: {r: 0.50980395, g: 0.83921576, b: 0.52156866, a: 1}
   _highlightedBackground: {r: 0.59923697, g: 1, b: 0.2216981, a: 1}

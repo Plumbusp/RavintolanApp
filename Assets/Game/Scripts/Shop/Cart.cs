@@ -1,35 +1,42 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Cart : MonoBehaviour
 {
+    public event Action OnOrderMade;
     [SerializeField] private CartPanel _cartPanel;
-    [Header("Buttons")]
-    [SerializeField] private CartButton _cartButton;
-    [SerializeField] private Button _returnButton;
     [SerializeField] private Button _buyButton;
+
+    private PersistantData _persistantData;
+    private LocalDataProvider _localDataProvider;
     private void OnEnable()
     {
-        _cartButton.Click += OpenCart;
-        _returnButton.onClick.AddListener(CloseCart);
         _buyButton.onClick.AddListener(MakeOrder);
     }
     private void OnDisable()
     {
-        _cartButton.Click -= OpenCart;
-        _returnButton.onClick.RemoveListener(CloseCart);
         _buyButton.onClick.RemoveListener(MakeOrder);
     }
-    private void OpenCart()
+    public void Initialize(PersistantData persistantData, LocalDataProvider localDataProvider)
     {
-        _cartPanel.Show(PersistentData.OrderDataObject.ChoosedItems);
+        _persistantData = persistantData;
+        _localDataProvider = localDataProvider;
     }
-    private void CloseCart()
+    public void Open()
+    {
+        if (_persistantData.OrderDataObject.ChoosedItems == null)
+            return;
+        _cartPanel.Show(_persistantData.OrderDataObject.ChoosedItems);
+    }
+    public void Close()
     {
         _cartPanel.Clear();
     }
     private void MakeOrder() // Or buy with different make order
     {
+        _localDataProvider.Save();
         Debug.Log("Bought!");
+        OnOrderMade?.Invoke();
     }
 }

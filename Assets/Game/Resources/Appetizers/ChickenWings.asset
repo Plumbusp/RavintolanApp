@@ -15,4 +15,6 @@ MonoBehaviour:
   <Image>k__BackingField: {fileID: 21300000, guid: a3db129cb4d826d489f49b9e5a6cc25c, type: 3}
   <Price>k__BackingField: 7
   <Title>k__BackingField: Chiken wings
+  <Description>k__BackingField: 
+  <SpecialSign>k__BackingField: {fileID: 21300000, guid: f0d6ea189fe88b941a6c7fefa35109cd, type: 3}
   <AppetizerType>k__BackingField: 3
