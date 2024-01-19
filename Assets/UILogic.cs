@@ -46,6 +46,6 @@ public class UILogic : MonoBehaviour
     private void OpenThankYouTab()
     {
         _thankYouPanel.SetActive(true);
-        _shop.gameObject.SetActive(true);
+        CloseCart();
     }
 }

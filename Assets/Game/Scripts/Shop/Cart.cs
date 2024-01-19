@@ -38,5 +38,6 @@ public class Cart : MonoBehaviour
         _localDataProvider.Save();
         Debug.Log("Bought!");
         OnOrderMade?.Invoke();
+        _cartPanel.Clear();
     }
 }

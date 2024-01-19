@@ -11,15 +11,12 @@ public class CartPanel : MonoBehaviour
     private List<CartItemView> _cartItems = new List<CartItemView>();
     private CartTypeSorter _cartSorter = new CartTypeSorter();
 
-    public void Initialize()
-    {
-
-    }
     public void Show(IEnumerable<ShopItem> items)
     {
         if (items == null)
             return;
         var sortedItems = _cartSorter.SortItems(items);
+
         foreach (var item in sortedItems)
         {
             var instance = _cartItemViewFactory.Get(item, _parentTransform);
@@ -34,52 +31,57 @@ public class CartPanel : MonoBehaviour
         }
         _cartItems.Clear();
     }
+
+
+
     private class CartTypeSorter   // PAY ATTENTION TO AMOUNT OF THE ITEM TYPE currently 4  // SORT ITEMS BY TYPE
     {
         private List<ShopItem> mainDishItems = new List<ShopItem>();   //4   each type has its of list
         private List<ShopItem> appetizerItems = new List<ShopItem>();
         private List<ShopItem> dessertItems = new List<ShopItem>();
         private List<ShopItem> drinkItems = new List<ShopItem>();
-        public IEnumerable<ShopItem> SortItems(IEnumerable<ShopItem> items)  // method called to sort items by type. It returnes sorted IEnumaerable.
+        List<CartItem> sortedItems = new List<CartItem>();
+        public IEnumerable<CartItem> SortItems(IEnumerable<ShopItem> items)  // method called to sort items by type. It returnes sorted IEnumaerable.
         {
+            sortedItems.Clear();
+
             if (items == null)
             {
-                throw new ArgumentNullException("items");
+                throw new ArgumentNullException("items are null");
             }
             foreach(ShopItem item in items)
             {
                 Visit(item);
             }
-            List<ShopItem> sortedItems = new List<ShopItem>();
+
             //4   making one common list
             if(mainDishItems.Count > 0)
-                sortedItems.AddRange(mainDishItems);
-            if(appetizerItems.Count > 0)  
-                sortedItems.AddRange(appetizerItems);
-            if(dessertItems.Count > 0)    
-                sortedItems.AddRange(dessertItems);
-            if(drinkItems.Count > 0)
-                sortedItems.AddRange(drinkItems);
+            {
+                var mainDishitemsDublicates = mainDishItems.GroupBy(item => item.Title).Where(array => array.Count() > 1);
+                if(mainDishitemsDublicates.Count() > 0)
+                {
+                }
+            }
             return sortedItems;
         }
         private void Visit(ShopItem item) => Visit((dynamic)item);   // partly using visitor pattern  
         private void Visit(AppetizerItem item)
         {
-            appetizerItems.Add(item);
+            sortedItems.Add(new CartItem(item));
         }
         private void Visit(MainDishItem item)
         {
-            mainDishItems.Add(item);
+            sortedItems.Add(new CartItem(item));
         }
 
         private void Visit(DessertItem item)
         {
-            dessertItems.Add(item);
+            sortedItems.Add(new CartItem(item));
         }
 
         private void Visit(DrinkItem item)
         {
-            drinkItems.Add(item);
+            sortedItems.Add(new CartItem(item));
         }
     }
 }

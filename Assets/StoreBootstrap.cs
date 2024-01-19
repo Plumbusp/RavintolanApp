@@ -21,5 +21,6 @@ public class StoreBootstrap : MonoBehaviour
         _persistantData = new PersistantData();
         _persistantData.OrderDataObject = new DataObject();
         _localDataProvider = new LocalDataProvider(_persistantData);
+        _localDataProvider.TryLoadCount();
     }
 }

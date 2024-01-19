@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 public class Item : MonoBehaviour
 {
     [SerializeField] private Image image;
-    [SerializeField] private Button addButton; 
+    [SerializeField] private Button addButton;
     [SerializeField] private TMP_Text nameField;
     [SerializeField] private TMP_Text priceField;
     [SerializeField] private TMP_Text foodAmount;
@@ -33,12 +33,12 @@ public class Item : MonoBehaviour
     public void SetItemName(string name) => nameField.text = name;
     public void SetItemImage(Sprite sprite) => image.sprite = sprite;
     public void SetFoodAmount(int amount) => foodAmount.text = amount.ToString();
-    public void SetItemDescriptionText(string text) =>  descriptionPanel.GetComponentInChildren<TMP_Text>().text = text;
+    public void SetItemDescriptionText(string text) => descriptionPanel.GetComponentInChildren<TMP_Text>().text = text;
     public void SetItemSpecialType(Sprite typeSprite) => specialTag.GetComponent<Image>().sprite = typeSprite;
 
     private void HandleDescriptionPressed()
     {
-        if(descriptionPanel.activeSelf)
+        if (descriptionPanel.activeSelf)
         {
             descriptionPanel.SetActive(false);
             descriptionButton.GetComponent<ButtonExtras>().buttonText.text = "Description";

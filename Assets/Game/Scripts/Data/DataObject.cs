@@ -22,5 +22,22 @@ public class DataObject
         _chosenItems.Remove(item);
         _endSum -= item.Price;
     }
+    public string GetOrderContentText()
+    {
+        string orderContent = _customersName + "@";
+        int finalSum = 0;
+        foreach(ShopItem item in _chosenItems)
+        {
+            finalSum += item.Price;
+        }
+        foreach(ShopItem item in _chosenItems)
+        {
+            orderContent = orderContent + "@" + item.Title + "    " + item.Price;
+        }
+        orderContent += "@@" + finalSum.ToString();
+        orderContent = orderContent.Replace("@", System.Environment.NewLine);
+
+        return orderContent;
+    }
 
 }

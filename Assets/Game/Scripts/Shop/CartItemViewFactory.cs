@@ -7,7 +7,7 @@ using System;
 public class CartItemViewFactory : ScriptableObject
 {
     [SerializeField] private CartItemView _cartItemPrefab;
-    public CartItemView Get(ShopItem item,Transform parent)
+    public CartItemView Get(CartItem item, Transform parent)
     {
         CartItemView instance = Instantiate(_cartItemPrefab, parent);
         instance.Initialize(item);

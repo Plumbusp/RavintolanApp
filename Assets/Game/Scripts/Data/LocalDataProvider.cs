@@ -8,12 +8,12 @@ public class LocalDataProvider
    private PersistantData _persistantData;
 
     private int _fileCount;
-    private const string _fileName = "/order";  // Remember about extension!
-    private const string _fileCountName = "/count";
-    private const string _ending = ".json";
+    private const string _fileName = "order";  // Remember about extension!
+    private const string _fileCountName = "count";
+    private const string _ending = ".txt";
 
-    private string SavePath = Application.persistentDataPath;
-    private string CountPath => SavePath + _fileCountName + _ending;
+    private string SavePath => Application.persistentDataPath;
+    private string CountPath => Path.Combine(SavePath, _fileCountName) + _ending;
 
     public LocalDataProvider(PersistantData persistantData)
     {
@@ -26,8 +26,8 @@ public class LocalDataProvider
             return false;
         try
         {
-            string jsonString = File.ReadAllText(CountPath);
-            _fileCount = JsonConvert.DeserializeObject<int>(jsonString);
+            _fileCount = int.Parse(File.ReadAllText(CountPath));
+            Debug.Log("Sucess");
             return true;
         }
         catch(Exception ex){
@@ -36,10 +36,14 @@ public class LocalDataProvider
     }
     public void Save()
     {
+       
         _fileCount++;
-        File.WriteAllText(SavePath + _fileName + _fileCount.ToString() + _ending, JsonConvert.SerializeObject(_persistantData, Formatting.Indented));
-        File.WriteAllText(SavePath + _fileCountName  + _ending, JsonConvert.SerializeObject(_persistantData, Formatting.Indented));
-        Debug.Log(SavePath + _fileName + _fileCount.ToString() + _ending + "        " + SavePath + _fileCountName + _ending);
+        string orderPath = Path.Combine(SavePath, _fileName) + _fileCount + _ending;
+
+        Debug.Log(orderPath + "        " + CountPath);
+
+        File.WriteAllText(orderPath, _persistantData.OrderDataObject.GetOrderContentText());
+        File.WriteAllText(CountPath, _fileCount.ToString());
     }
     private bool IsCountExists() => File.Exists(CountPath);
 }
