@@ -25,7 +25,7 @@ public class Cart : MonoBehaviour
     }
     public void Open()
     {
-        if (_persistantData.OrderDataObject.ChoosedItems == null)
+        if (_persistantData.OrderDataObject. == null)
             return;
         _cartPanel.Show(_persistantData.OrderDataObject.ChoosedItems);
     }

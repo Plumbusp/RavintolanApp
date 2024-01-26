@@ -5,6 +5,7 @@ using TMPro;
 
 public class ShopItem : ScriptableObject
 {
+    public FoodType FoodType;
     [field: SerializeField] public Sprite Image { get; private set; }
     [field: SerializeField, Range(0,100)] public int Price { get; private set; }
     [field: SerializeField] public string Title { get; private set; }

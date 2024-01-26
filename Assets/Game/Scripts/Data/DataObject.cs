@@ -2,37 +2,44 @@ using System.Collections.Generic;
 
 public class DataObject
 {
-    private List<ShopItem> _chosenItems;
+     //private List<ShopItem> _chosenItems;
     private int _endSum;
     private string _customersName;
     public string CustomersName => _customersName;
-    public IEnumerable<ShopItem> ChoosedItems => _chosenItems;
+    //public IEnumerable<ShopItem> ChoosedItems => _chosenItems;
+    public Dictionary<ShopItem, int> ChoosedItem;
     public DataObject()
     {
-        _chosenItems = new List<ShopItem>();
+        ChoosedItem = new Dictionary<ShopItem, int>();
         _endSum = 0;
     }
+    public bool DoesCantainsItems() => 
     public void AddItem(ShopItem item)
     {
-        _chosenItems.Add(item);
+        if( ChoosedItem.ContainsKey(item) )
+        {
+            ChoosedItem[item] += 1;
+        }
+        else
+            ChoosedItem.Add(item, 1);
         _endSum += item.Price;
     }
-    public void RemoveItem(ShopItem item)
+    private void RemoveItem(ShopItem item)
     {
-        _chosenItems.Remove(item);
+        ChoosedItem.Remove(item);
         _endSum -= item.Price;
     }
     public string GetOrderContentText()
     {
         string orderContent = _customersName + "@";
         int finalSum = 0;
-        foreach(ShopItem item in _chosenItems)
+        foreach(KeyValuePair<ShopItem, int> item in ChoosedItem)
         {
-            finalSum += item.Price;
+            finalSum += item.Value * item.Key.Price;
         }
-        foreach(ShopItem item in _chosenItems)
+        foreach(KeyValuePair<ShopItem, int> item in ChoosedItem)
         {
-            orderContent = orderContent + "@" + item.Title + "    " + item.Price;
+            orderContent = orderContent + "@" + item.Key.Title + "    " + item.Key.Price;
         }
         orderContent += "@@" + finalSum.ToString();
         orderContent = orderContent.Replace("@", System.Environment.NewLine);
