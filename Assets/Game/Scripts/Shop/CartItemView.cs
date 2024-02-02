@@ -18,12 +18,12 @@ public class CartItemView : MonoBehaviour
     public void Initialize(CartItem item)
     {
         this.Item = item;
-        _image.sprite = item.Image;
-        _specialSign.sprite = item.SpecialSign;
-        _title.text = item.Title;
+        _image.sprite = item.ShopItem.Image;
+        _specialSign.sprite = item.ShopItem.SpecialSign;
+        _title.text = item.ShopItem.Title;
         _priceView.text = _price.ToString();
         _amount = item.Amount;
-        _price = item.Price * _amount;
+        _price = item.ShopItem.Price * _amount;
         _priceView.text = _price.ToString();
     }
 }

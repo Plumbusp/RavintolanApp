@@ -29,7 +29,7 @@ public class Cart : MonoBehaviour
     {
         if (_persistantData.OrderDataObject.ChoosedItems == null)
             return;
-        _cartPanel.Show(_persistantData.OrderDataObject.ChoosedItems);
+        _cartPanel.Show(_persistantData.OrderDataObject.ChoosedItems.ToList());
     }
     public void Close()
     {
@@ -43,17 +43,4 @@ public class Cart : MonoBehaviour
         _cartPanel.Clear();
     }
 }
-public class ShopItemsSorter
-{
-    public IEnumerable<CartItemView> SortFromShopItemsToCartItemView(List<ShopItem> shopItemsToSort)
-    {
-        List<CartItem> cartItems = new List<CartItem>();
-        var sortedShopItems = shopItemsToSort.GroupBy(item => item.Title).Where(item => item.Count() > 1).ToList();
-        foreach (var shopItems in sortedShopItems)
-        {
-            CartItem cartItem = new CartItem(shopItems);
-            cartItems.Add(cartItem);
-        }
-        return cartItems;
-    }
-}
+
