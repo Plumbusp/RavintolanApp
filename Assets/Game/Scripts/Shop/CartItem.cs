@@ -1,20 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using System;
 
 public class CartItem
 {
-    public Sprite Image;
-    public string Title;
-    public int Price;
-    public Sprite SpecialSign;
     public int Amount;
+    public ShopItem ShopItem;
 
-    public CartItem(ShopItem shopItem)
+    public CartItem(List<ShopItem> shopitems)
     {
-        Image = shopItem.Image;
-        Title = shopItem.Title;
-        Price = shopItem.Price;
-        SpecialSign = shopItem.SpecialSign;
+        if(shopitems.GroupBy(item => item.Title).Count() != 1)
+            throw new Exception(nameof(shopitems));
+        ShopItem = shopitems[0];
+        Amount = shopitems.Count();
     }
 }

@@ -15,21 +15,6 @@ public class CartItemView : MonoBehaviour
     private int _amount;
     private int _price;
     
-    //public int Price
-    //{
-    //    get
-    //    {
-    //        return _price;
-    //    }
-    //    set
-    //    {
-    //        if (((Item.Price + value) % Item.Price) != 0)
-    //        {
-    //            throw new ArgumentOutOfRangeException(nameof(value));
-    //        }
-    //        _price += value;
-    //    }
-    //}
     public void Initialize(CartItem item)
     {
         this.Item = item;

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -39,5 +41,19 @@ public class Cart : MonoBehaviour
         Debug.Log("Bought!");
         OnOrderMade?.Invoke();
         _cartPanel.Clear();
+    }
+}
+public class ShopItemsSorter
+{
+    public IEnumerable<CartItemView> SortFromShopItemsToCartItemView(List<ShopItem> shopItemsToSort)
+    {
+        List<CartItem> cartItems = new List<CartItem>();
+        var sortedShopItems = shopItemsToSort.GroupBy(item => item.Title).Where(item => item.Count() > 1).ToList();
+        foreach (var shopItems in sortedShopItems)
+        {
+            CartItem cartItem = new CartItem(shopItems);
+            cartItems.Add(cartItem);
+        }
+        return cartItems;
     }
 }
