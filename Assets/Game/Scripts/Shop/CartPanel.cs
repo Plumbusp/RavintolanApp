@@ -8,9 +8,13 @@ public class CartPanel : MonoBehaviour
 {
     [SerializeField] private CartItemViewFactory _cartItemViewFactory;
     [SerializeField] private Transform _parentTransform;
-    private List<CartItemView> _cartItems = new List<CartItemView>();
+    public List<CartItemView> CartItems { get; private set;}
     private ShopItemsSorter _shopItemsSorter = new ShopItemsSorter();
 
+    private void Awake()
+    {
+        CartItems = new List<CartItemView>();
+    }
     public void Show(List<ShopItem> items)
     {
         if (items == null)
@@ -20,16 +24,18 @@ public class CartPanel : MonoBehaviour
         foreach (var item in sortedItems)
         {
             var instance = _cartItemViewFactory.Get(item, _parentTransform);
-            _cartItems.Add(instance);
+            CartItems.Add(instance);
         }
     }
     public void Clear()
     {
-        foreach (CartItemView item in _cartItems)
+        foreach (CartItemView item in CartItems)
         {
+            Debug.Log("Destroed" + item.name);
             Destroy(item.gameObject);
         }
-        _cartItems.Clear();
+        CartItems.Clear();
+        Debug.Log(CartItems.Count);
     }
 }
 public class ShopItemsSorter

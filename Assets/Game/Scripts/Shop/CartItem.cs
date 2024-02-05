@@ -6,8 +6,8 @@ using System;
 
 public class CartItem
 {
-    public int Amount;
     public ShopItem ShopItem;
+    public int Amount;
 
     public CartItem(List<ShopItem> shopitems)
     {

@@ -36,7 +36,6 @@ public class LocalDataProvider
     }
     public void Save()
     {
-       
         _fileCount++;
         string orderPath = Path.Combine(SavePath, _fileName) + _fileCount + _ending;
 

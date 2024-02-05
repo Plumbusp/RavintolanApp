@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 3107546017190333813}
   - component: {fileID: 7122863138126522255}
   m_Layer: 5
-  m_Name: Minus
+  m_Name: DecreaseAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,18 +493,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3561458776019040281}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.003451735, w: 0.99999404}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4589219940966801966}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.396}
   m_AnchorMin: {x: 0.27363014, y: 0}
-  m_AnchorMax: {x: 0.58084923, y: 0.1792759}
-  m_AnchoredPosition: {x: -0.91000366, y: -2.921997}
-  m_SizeDelta: {x: -8.723007, y: -5.8430004}
+  m_AnchorMax: {x: 0.6605207, y: 0.26189658}
+  m_AnchoredPosition: {x: 1.9286041, y: -1.8927002}
+  m_SizeDelta: {x: -2.9502983, y: -4.2243004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4424254728778321372
 CanvasRenderer:
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 30.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 1905449880754630036}
   - component: {fileID: 7765733239944224984}
   m_Layer: 5
-  m_Name: back
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 5318195953804841654}
   - component: {fileID: 816423617623363905}
   m_Layer: 5
-  m_Name: Plus
+  m_Name: AddAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,6 +1070,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c87e80aabd766e4b99ddddef40ef2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _addAmountButton: {fileID: 816423617623363905}
+  _decreaseAmountButton: {fileID: 7122863138126522255}
+  _amountView: {fileID: 6790245807274574587}
   _image: {fileID: 178376983228931000}
   _title: {fileID: 6871491542497204273}
   _priceView: {fileID: 2266773832793789381}

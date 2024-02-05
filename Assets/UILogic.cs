@@ -4,48 +4,58 @@ using UnityEngine;
 
 public class UILogic : MonoBehaviour
 {
+    [Header("Shop")]
     [SerializeField] private Shop _shop;
 
     [Header("Cart")]
     [SerializeField] private Cart _cart;
-
     [SerializeField] private CartButton _cartOpenButton;
     [SerializeField] private CartButton _cartCloseButton;
+
+    [Header("Personal Info Input Panel")]
+    [SerializeField] private PersonalInfoController _personalInfoPanel;
 
     [Header("Thank you panel")]
     [SerializeField] private GameObject _thankYouPanel;
 
     private void OnEnable()
     {
-        _cart.OnOrderMade += OpenThankYouTab;
+        Cart.OnNextStep += OpenPersonalInfoPanel;
+        PersonalInfoController.OnNextStep += OpenThankYouPanel;
         _cartOpenButton.Click += OpenCart;
         _cartCloseButton.Click += CloseCart;
     }
     private void OnDisable()
     {
-        _cart.OnOrderMade -= OpenThankYouTab;
+        Cart.OnNextStep -= OpenPersonalInfoPanel;
+        PersonalInfoController.OnNextStep -= OpenThankYouPanel;
         _cartOpenButton.Click -= OpenCart;
         _cartCloseButton.Click -= CloseCart;
     }
     public void CloseThankYouPanel()
     {
         _thankYouPanel.SetActive(false);
+        _shop.Open();
     }
     private void OpenCart()
     {
-        _cart.gameObject.SetActive(true);
-        _shop.gameObject.SetActive(false);
+        _shop.Close();
         _cart.Open();
     }
     private void CloseCart()
     {
-        _cart.gameObject.SetActive(false);
-        _shop.gameObject.SetActive(true);
+        _shop.Open();
         _cart.Close();
     }
-    private void OpenThankYouTab()
+    private void OpenPersonalInfoPanel()
     {
+        _cart.Close();
+        _shop.Close();
+        _personalInfoPanel.gameObject.SetActive(true);
+    }
+    private void OpenThankYouPanel()
+    {
+        _personalInfoPanel.gameObject.SetActive(false);
         _thankYouPanel.SetActive(true);
-        CloseCart();
     }
 }

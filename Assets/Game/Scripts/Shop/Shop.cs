@@ -29,6 +29,15 @@ public class Shop : MonoBehaviour
     {
         _shopPanel.Initialize(persistantData);
     }
+    public void Open()
+    {
+        gameObject.SetActive(true);
+        OnAppetizersClick();
+    }
+    public void Close()
+    {
+        gameObject.SetActive(false);
+    }
     public void OnAppetizersClick()
     {
         _shopPanel.Show(content.AppetizerItems);
