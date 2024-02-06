@@ -8,6 +8,6 @@ public class ThankYouPanelController : MonoBehaviour
     [SerializeField] private Button _returnButton;
     private void Awake()
     {
-        _returnButton.onClick.AddListener(delegate { OnNextStep?.Invoke();  gameObject.SetActive(false); });
+        _returnButton.onClick.AddListener(delegate { OnNextStep?.Invoke(); });
     }
 }

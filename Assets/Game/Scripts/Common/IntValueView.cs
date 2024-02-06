@@ -1,4 +1,4 @@
 
-public class IntValueView : ValueView<int>
+public class IntValueView : ValueView<float>
 {
 }

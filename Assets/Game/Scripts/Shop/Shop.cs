@@ -28,6 +28,7 @@ public class Shop : MonoBehaviour
     public void Initialize(PersistantData persistantData)
     {
         _shopPanel.Initialize(persistantData);
+        Open();
     }
     public void Open()
     {

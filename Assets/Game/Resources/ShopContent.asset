@@ -12,9 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16da6b20c9f63c429b21ab1fd1b3a0f, type: 3}
   m_Name: ShopContent
   m_EditorClassIdentifier: 
-  _dessertItems:
-  - {fileID: 11400000, guid: 9f6681b581170e04aa88230c62e91a17, type: 2}
-  - {fileID: 11400000, guid: 4b762f8f8b674704184b61f6f784c9dd, type: 2}
   _appetizerItems:
-  - {fileID: 11400000, guid: d88022aab1d1bd745abcd7883913d81e, type: 2}
-  - {fileID: 11400000, guid: 42825c096a09aad418e9cb5d5e893f9d, type: 2}
+  - {fileID: 11400000, guid: 17ab69485c1b35444848793ee059447b, type: 2}
+  - {fileID: 11400000, guid: 3acd4566b37093142b74d7cd33f2f8f6, type: 2}
+  _mainDishItems:
+  - {fileID: 11400000, guid: 0653dcefbdbd7d6449c2236a4ae6d233, type: 2}
+  - {fileID: 11400000, guid: e7289642c24724f418470813808d29a1, type: 2}
+  _dessertItems:
+  - {fileID: 11400000, guid: fe4c349066bc3f34799677b8631fed85, type: 2}
+  - {fileID: 11400000, guid: 36e1a4e487012304995c939b5019a27f, type: 2}
+  - {fileID: 11400000, guid: 0c1c6ebdd6d6e2d4387304c30512a3d3, type: 2}
+  - {fileID: 11400000, guid: 77c25eec0cbc1e8428a4d84639d2ebca, type: 2}
+  _drinkItem:
+  - {fileID: 11400000, guid: 3d3a69b2f0142dc43b179a499808b5da, type: 2}
+  - {fileID: 11400000, guid: 24c9bb26533844d4faff160a9b53b741, type: 2}
+  - {fileID: 11400000, guid: 8b2fcc9d14451e641bea4d4684dbb2f3, type: 2}
+  - {fileID: 11400000, guid: b56c73ee6a03fcc49a17f06983e23538, type: 2}

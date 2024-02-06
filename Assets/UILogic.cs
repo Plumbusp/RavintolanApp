@@ -21,18 +21,19 @@ public class UILogic : MonoBehaviour
     private void OnEnable()
     {
         Cart.OnNextStep += OpenPersonalInfoPanel;
-        PersonalInfoController.OnNextStep += OpenThankYouPanel;
+        ConformationController.OnNextStep += OpenThankYouPanel;
+        ThankYouPanelController.OnNextStep += OpenShop;
         _cartOpenButton.Click += OpenCart;
         _cartCloseButton.Click += CloseCart;
     }
     private void OnDisable()
     {
         Cart.OnNextStep -= OpenPersonalInfoPanel;
-        PersonalInfoController.OnNextStep -= OpenThankYouPanel;
+        ConformationController.OnNextStep -= OpenShop;
         _cartOpenButton.Click -= OpenCart;
         _cartCloseButton.Click -= CloseCart;
     }
-    public void CloseThankYouPanel()
+    public void OpenShop()
     {
         _thankYouPanel.SetActive(false);
         _shop.Open();

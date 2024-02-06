@@ -41,7 +41,8 @@ public class ShopItemsSorter
     public List<CartItem> SortFromShopItemsToCartItems(List<ShopItem> shopItemsToSort)
     {
         List<CartItem> cartItems = new List<CartItem>();
-        var sortedShopItems = shopItemsToSort.GroupBy(item => item.Title).Where(item => item.Count() > 1).ToList();
+        var sortedShopItems = shopItemsToSort.GroupBy(item => item.Title).Where(item => item.Count() > 0).ToList();
+        Debug.Log(sortedShopItems.Count());
         foreach (var shopItems in sortedShopItems)
         {
             CartItem cartItem = new CartItem(shopItems.ToList());

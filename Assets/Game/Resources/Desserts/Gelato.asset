@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 176d06258eb971648a7494ffa6729521, type: 3}
-  m_Name: IceCream
+  m_Name: Gelato
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 21300000, guid: 6ffad94b3366ecc4cb7ea9547014dff5, type: 3}
-  <Price>k__BackingField: 71
-  <Title>k__BackingField: Ice cream
-  <Description>k__BackingField: adfgadfgadfg
-  <SpecialSign>k__BackingField: {fileID: 21300000, guid: 65cb870ea43ea504c9b0fc88c7efb3dc, type: 3}
-  <DessertType>k__BackingField: 3
+  <Image>k__BackingField: {fileID: 21300000, guid: 51a3c2a3d2ee53246bb47ba6a983c25b, type: 3}
+  <Price>k__BackingField: 2.5
+  <Title>k__BackingField: Gelato
+  <Description>k__BackingField: "Italialainen j\xE4\xE4tel\xF6, mansikka"
+  <SpecialSign>k__BackingField: {fileID: 0}
+  <DessertType>k__BackingField: 1

@@ -10,7 +10,7 @@ public class ValueView<T> : MonoBehaviour where T : IConvertible
     public void Show(T value)
     {
         gameObject.SetActive(true);
-        text.text = value.ToString();
+        text.text = value.ToString() + "€";
     }
     public void Hide()
     {

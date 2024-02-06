@@ -4,7 +4,7 @@ public class DataObject
 {
     private List<ShopItem> _chosenItems;
     private List<CartItem> _boughtItems;
-    private int _endSum;
+    private float _endSum;
     private int _maxNameLength = 20;
 
     private string _customerName;
@@ -45,19 +45,31 @@ public class DataObject
     {
         _boughtItems = boughtItems;
     }
+    public float GetOrderSum()
+    {
+        if(_boughtItems == null || _boughtItems.Count == 0)
+            return 0;
+        float finalSum = 0;
+        foreach (CartItem item in _boughtItems)
+        {
+            float itemPrice = item.Amount * item.ShopItem.Price;
+            finalSum += itemPrice;
+        }
+        return finalSum;
+    }
     public string GetOrderContentText()
     {
-        string orderContent = "Customer's name" + _customerName + "@";
-        int finalSum = 0;
-        orderContent += "@Special Requests: " + SpecialRequest;
+        string orderContent = "Customer's name: " + _customerName;
+        float finalSum = 0;
+        orderContent += "@Special Requests: " + SpecialRequest + "@";
         orderContent += "@Order:";
         foreach (CartItem item in _boughtItems)
         {
-            int itemPrice = item.Amount * item.ShopItem.Price;
+            float itemPrice = item.Amount * item.ShopItem.Price;
             orderContent = orderContent + "@" + item.ShopItem.Title + "   Amount: " + item.Amount + "    " + itemPrice + "€";
             finalSum += itemPrice;
         }
-        orderContent += "@@" + "Final sum: " + finalSum.ToString();
+        orderContent += "@@" + "Final sum: " + finalSum.ToString() + "€";
         orderContent = orderContent.Replace("@", System.Environment.NewLine);
 
         return orderContent;

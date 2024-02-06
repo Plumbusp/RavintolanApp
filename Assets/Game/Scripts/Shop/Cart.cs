@@ -8,18 +8,18 @@ public class Cart : MonoBehaviour
 {
     public static event Action OnNextStep;
     [SerializeField] private CartPanel _cartPanel;
-    [SerializeField] private Button _buyButton;
+    [SerializeField] private CartButton _buyButton;
 
     private PersistantData _persistantData;
     private LocalDataProvider _localDataProvider;
     private void Awake()
     {
-        _buyButton.onClick.AddListener(delegate { PrepairOrder(); OnNextStep?.Invoke(); } );
-        PersonalInfoController.OnNextStep += MakeOrder;
+        _buyButton.Click += delegate { PrepairOrder(); OnNextStep?.Invoke(); };
+        ConformationController.OnNextStep += MakeOrder;
     }
     private void OnDestroy()
     {
-        PersonalInfoController.OnNextStep -= MakeOrder;
+        ConformationController.OnNextStep -= MakeOrder;
     }
     public void Initialize(PersistantData persistantData, LocalDataProvider localDataProvider)
     {
@@ -46,6 +46,7 @@ public class Cart : MonoBehaviour
             itemsToBuy.Add(itemView.Item);
         }  
         _persistantData.OrderDataObject.SetItemsToBuy(itemsToBuy);
+        Debug.Log("Preparing order " + itemsToBuy);
     }
     private void MakeOrder()
     {

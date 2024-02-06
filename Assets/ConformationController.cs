@@ -1,18 +1,21 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class PersonalInfoController : MonoBehaviour
+public class ConformationController : MonoBehaviour
 {
     public static event Action OnNextStep;
     [SerializeField] private Button _nextStepButton;
+    [SerializeField] private TMP_Text _finalSumText;
     private PersistantData _persistantData;
     private void Awake()
     {
         _nextStepButton.onClick.AddListener(delegate { OnNextStep?.Invoke(); });
+    }
+    private void OnEnable()
+    {
+        _finalSumText.text = "Final sum of the order: " + _persistantData.OrderDataObject.GetOrderSum().ToString() + "€";
     }
     public void Initialize(PersistantData persistantData)
     {

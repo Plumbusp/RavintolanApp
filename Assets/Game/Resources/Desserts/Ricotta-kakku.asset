@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 176d06258eb971648a7494ffa6729521, type: 3}
-  m_Name: lemonCake
+  m_Name: Ricotta-kakku
   m_EditorClassIdentifier: 
-  <Image>k__BackingField: {fileID: 21300000, guid: faf317c3783503648a68422672f8c0a6, type: 3}
-  <Price>k__BackingField: 33
-  <Title>k__BackingField: Lemon cake
-  <Description>k__BackingField: fhkhjkfhkfhk
-  <SpecialSign>k__BackingField: {fileID: 21300000, guid: a0ba6cbb66a2cd14da348d59e46d9afd, type: 3}
-  <DessertType>k__BackingField: 1
+  <Image>k__BackingField: {fileID: 21300000, guid: 85152454cd0eadf468c0df6eaa7abe7e, type: 3}
+  <Price>k__BackingField: 5
+  <Title>k__BackingField: Ricotta-kakku
+  <Description>k__BackingField: Italialainen tuorejuustokakku
+  <SpecialSign>k__BackingField: {fileID: 0}
+  <DessertType>k__BackingField: 3

@@ -1,8 +1,8 @@
 
 public enum DrinkTypes 
 {
-    Coffee,
+    RedWine,
+    WhiteWine,
     Cola,
-    Sprite,
-    Juice
+    Beer
 }

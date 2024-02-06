@@ -13,7 +13,7 @@ public class CartItemView : MonoBehaviour
     [SerializeField] private TMP_Text _priceView;
     [SerializeField] private Image _specialSign;
     public CartItem Item { get; private set; }
-    private int _price;
+    private float _price;
     private void OnEnable()
     {
         _addAmountButton.onClick.AddListener(AddAmount);
@@ -52,6 +52,6 @@ public class CartItemView : MonoBehaviour
     private void UpdateTotalSum()
     {
         _price = Item.ShopItem.Price * Item.Amount;
-        _priceView.text = _price.ToString();
+        _priceView.text = _price.ToString() + "€";
     }
 }

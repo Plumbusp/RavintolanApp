@@ -22,10 +22,10 @@ public class ShopItemView : MonoBehaviour
     [SerializeField] private Color _highlightedBackground;
     [Header("Texts")]
     [SerializeField] private TMP_Text _descriptionText;
-    [SerializeField] private ValueView<int> _priceView;
+    [SerializeField] private ValueView<float> _priceView;
     [SerializeField] private TMP_Text _title;
     public ShopItem Item { get; private set; }
-    public int Price => Item.Price;
+    public float Price => Item.Price;
 
     public void Initialize(ShopItem item)
     {
@@ -48,12 +48,12 @@ public class ShopItemView : MonoBehaviour
         if (_descriptionPanel.activeSelf)
         {
             _descriptionPanel.SetActive(false);
-            _descriptionButton.GetComponent<ButtonExtras>().buttonText.text = "Description";
+            _descriptionButton.GetComponent<ButtonExtras>().buttonText.text = "Kuvaus";
         }
         else
         {
             _descriptionPanel.SetActive(true);
-            _descriptionButton.GetComponent<ButtonExtras>().buttonText.text = "Return";
+            _descriptionButton.GetComponent<ButtonExtras>().buttonText.text = "Palauta";
         }
 
     }

@@ -7,7 +7,7 @@ public class StoreBootstrap : MonoBehaviour
 {
     [SerializeField] private Shop _shop;
     [SerializeField] private Cart _cart;
-    [SerializeField] private PersonalInfoController _personalInfoController;
+    [SerializeField] private ConformationController _personalInfoController;
 
     private PersistantData _persistantData;
     private LocalDataProvider _localDataProvider;
