@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f3ee731a7bd4f48ad8354766d01f1c, type: 3}
+  m_Name: "Tuoretta rapeaa focaccia leip\xE4\xE4 ja italialaisia juustoja"
+  m_EditorClassIdentifier: 
+  <Image>k__BackingField: {fileID: 21300000, guid: 5483e5e0a09b7db4faa56bd8bd300293, type: 3}
+  <Price>k__BackingField: 2.5
+  <Title>k__BackingField: "Valkosipulileip\xE4\xE4 ja juustolajitelma"
+  <Description>k__BackingField: "Tuoretta rapeaa focaccia leip\xE4\xE4 ja italialaisia
+    juustoja"
+  <SpecialSign>k__BackingField: {fileID: 21300000, guid: a4be71bc15b09db4aa16b7f5d9bbd770, type: 3}
+  <AppetizerType>k__BackingField: 0
