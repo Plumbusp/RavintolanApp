@@ -12,14 +12,13 @@ public class Cart : MonoBehaviour
 
     private PersistantData _persistantData;
     private LocalDataProvider _localDataProvider;
-    private void OnEnable()
+    private void Awake()
     {
-        _buyButton.onClick.AddListener(delegate { OnNextStep?.Invoke(); } );
+        _buyButton.onClick.AddListener(delegate { PrepairOrder(); OnNextStep?.Invoke(); } );
         PersonalInfoController.OnNextStep += MakeOrder;
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
-        _buyButton.onClick.RemoveListener(MakeOrder);
         PersonalInfoController.OnNextStep -= MakeOrder;
     }
     public void Initialize(PersistantData persistantData, LocalDataProvider localDataProvider)
@@ -39,7 +38,7 @@ public class Cart : MonoBehaviour
         _cartPanel.Clear();
         gameObject.SetActive(false);
     }
-    private void MakeOrder() // Or buy with different make order
+    private void PrepairOrder() 
     {
         List<CartItem> itemsToBuy = new List<CartItem>();
         foreach(var itemView in _cartPanel.CartItems)
@@ -47,6 +46,9 @@ public class Cart : MonoBehaviour
             itemsToBuy.Add(itemView.Item);
         }  
         _persistantData.OrderDataObject.SetItemsToBuy(itemsToBuy);
+    }
+    private void MakeOrder()
+    {
         _localDataProvider.Save();
         Debug.Log("Bought!");
     }

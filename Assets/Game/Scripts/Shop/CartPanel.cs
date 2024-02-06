@@ -31,11 +31,9 @@ public class CartPanel : MonoBehaviour
     {
         foreach (CartItemView item in CartItems)
         {
-            Debug.Log("Destroed" + item.name);
             Destroy(item.gameObject);
         }
         CartItems.Clear();
-        Debug.Log(CartItems.Count);
     }
 }
 public class ShopItemsSorter

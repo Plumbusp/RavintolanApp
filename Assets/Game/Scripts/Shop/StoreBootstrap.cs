@@ -7,6 +7,7 @@ public class StoreBootstrap : MonoBehaviour
 {
     [SerializeField] private Shop _shop;
     [SerializeField] private Cart _cart;
+    [SerializeField] private PersonalInfoController _personalInfoController;
 
     private PersistantData _persistantData;
     private LocalDataProvider _localDataProvider;
@@ -15,11 +16,12 @@ public class StoreBootstrap : MonoBehaviour
         InitializeData();
         _shop.Initialize(_persistantData);
         _cart.Initialize(_persistantData, _localDataProvider);
-        PersonalInfoController.OnNextStep += RestartData;
+        _personalInfoController.Initialize(_persistantData);
+        ThankYouPanelController.OnNextStep += RestartData;
     }
-    private void OnDisable()
+    private void OnDestroy()
     {
-        PersonalInfoController.OnNextStep -= RestartData;
+        ThankYouPanelController.OnNextStep -= RestartData;
     }
     private void InitializeData()
     {
@@ -31,5 +33,6 @@ public class StoreBootstrap : MonoBehaviour
     private void RestartData()
     {
         _persistantData.OrderDataObject = new DataObject();
+        Debug.Log("Restaer Data");
     }
 }

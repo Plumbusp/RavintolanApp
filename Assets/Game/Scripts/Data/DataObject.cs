@@ -5,7 +5,7 @@ public class DataObject
     private List<ShopItem> _chosenItems;
     private List<CartItem> _boughtItems;
     private int _endSum;
-    private int _maxNameLength;
+    private int _maxNameLength = 20;
 
     private string _customerName;
     public IEnumerable<ShopItem> ChoosedItems => _chosenItems;
@@ -47,10 +47,10 @@ public class DataObject
     }
     public string GetOrderContentText()
     {
-        string orderContent = _customerName + "@";
+        string orderContent = "Customer's name" + _customerName + "@";
         int finalSum = 0;
-        orderContent += "@@ Special Requests: " + SpecialRequest;
-
+        orderContent += "@Special Requests: " + SpecialRequest;
+        orderContent += "@Order:";
         foreach (CartItem item in _boughtItems)
         {
             int itemPrice = item.Amount * item.ShopItem.Price;

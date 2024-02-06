@@ -13,7 +13,7 @@ public class UILogic : MonoBehaviour
     [SerializeField] private CartButton _cartCloseButton;
 
     [Header("Personal Info Input Panel")]
-    [SerializeField] private PersonalInfoController _personalInfoPanel;
+    [SerializeField] private GameObject _personalInfoPanel;
 
     [Header("Thank you panel")]
     [SerializeField] private GameObject _thankYouPanel;
@@ -51,11 +51,11 @@ public class UILogic : MonoBehaviour
     {
         _cart.Close();
         _shop.Close();
-        _personalInfoPanel.gameObject.SetActive(true);
+        _personalInfoPanel.SetActive(true);
     }
     private void OpenThankYouPanel()
     {
-        _personalInfoPanel.gameObject.SetActive(false);
+        _personalInfoPanel.SetActive(false);
         _thankYouPanel.SetActive(true);
     }
 }
